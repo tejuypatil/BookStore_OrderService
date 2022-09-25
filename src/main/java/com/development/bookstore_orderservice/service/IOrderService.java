@@ -5,9 +5,9 @@ import com.development.bookstore_orderservice.entity.Order;
 
 public interface IOrderService {
 
-    public Order createOrder(OrderRequestDTO orderRequestDTO);
+    public Order createOrder(OrderRequestDTO orderRequestDTO,String token);
 
-    Order getOrder(int orderId);
+    Order getOrder(int orderId,String token);
 
-    Order cancelOrder(int orderId);
+    Order cancelOrder(int orderId,String token);
 }

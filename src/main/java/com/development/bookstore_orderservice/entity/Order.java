@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Data
@@ -15,32 +16,30 @@ import java.time.LocalDate;
 @Table(name = "OrderData")
 public class Order {
 
+
     // Automatically set
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int orderId;
     private LocalDate localDate;
     private int price;
-//    @JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userId")
-//    private  UserData user;
     private boolean isCanceled;
 
     // Given from Postman/User
     private int quantity;
     private  String address;
-
-
-//    @JsonIgnoreProperties({"applications","hibernateLazyInitializer"})
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "bookId")
-//    private Book book;
+    private int userId;
+    /*@ElementCollection
+    @CollectionTable(name = "Order_Book",joinColumns =@JoinColumn(name = "order_id"))
+    private List<Integer> bookIds;*/
+    private  int bookId;
+    
 
     public Order(OrderRequestDTO orderRequestDTO)
     {
         this.quantity=orderRequestDTO.getQuantity();
         this.address=orderRequestDTO.getAddress();
+        this.bookId=orderRequestDTO.getBookId();
 
     }
 

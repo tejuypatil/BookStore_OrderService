@@ -15,20 +15,20 @@ public class OrderController {
     @Autowired
     public IOrderService orderService;
     @PostMapping("/orderservice")
-    public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO orderRequestDTO){
-        Order order = orderService.createOrder(orderRequestDTO);
+    public ResponseEntity<OrderResponseDTO> createOrder(@RequestBody OrderRequestDTO orderRequestDTO,@RequestHeader(name = "Authorization")String token){
+        Order order = orderService.createOrder(orderRequestDTO,token);
         return new ResponseEntity<OrderResponseDTO>(new OrderResponseDTO("Inserted book data successfully",order), HttpStatus.OK);
     }
 
     @GetMapping("/orderservice/{orderId}")
-    public ResponseEntity<OrderResponseDTO> getBookById(@PathVariable("orderId") int bookId){
-        Order book = orderService.getOrder(bookId);
+    public ResponseEntity<OrderResponseDTO> getBookById(@PathVariable("orderId") int bookId,@RequestHeader(name = "Authorization")String token){
+        Order book = orderService.getOrder(bookId,token);
         return new ResponseEntity<OrderResponseDTO>(new OrderResponseDTO("Get call for Id successful",book),HttpStatus.OK);
 
     }
     @PutMapping("/orderservice/{orderId}")
-    public ResponseEntity<OrderResponseDTO>cancelOrder(@PathVariable("orderId")int orderId){
-        Order order = orderService.cancelOrder(orderId);
+    public ResponseEntity<OrderResponseDTO>cancelOrder(@PathVariable("orderId")int orderId,@RequestHeader(name = "Authorization")String token){
+        Order order = orderService.cancelOrder(orderId,token);
         return new ResponseEntity<OrderResponseDTO>(new OrderResponseDTO("Order cancelled successfully",order),HttpStatus.OK);
     }
 }

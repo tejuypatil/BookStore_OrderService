@@ -2,12 +2,14 @@ package com.development.bookstore_orderservice.entity;
 
 import com.development.bookstore_orderservice.dto.BookRequestDTO;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-@Entity
+
 @Data
-@Table(name = "Book")
+@NoArgsConstructor
+
 public class Book {
 
     @Id
@@ -25,9 +27,6 @@ public class Book {
         this.price = bookRequestDTO.price;
         this.quantity = bookRequestDTO.quantity;
     }
-    public Book()
-    {
 
-    }
 }
 

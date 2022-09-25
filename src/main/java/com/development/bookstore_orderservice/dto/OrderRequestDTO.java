@@ -7,5 +7,5 @@ import lombok.Data;
 public class OrderRequestDTO {
     private int quantity;
     private  String address;
-    private Book book;
+    private int bookId;
 }

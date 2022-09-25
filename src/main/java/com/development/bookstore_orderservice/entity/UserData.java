@@ -1,10 +1,10 @@
 package com.development.bookstore_orderservice.entity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 @Data
-@Entity
-@Table(name = "UserData")
+@NoArgsConstructor
 public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,7 +24,4 @@ public class UserData {
     @Column(nullable = false)
     private boolean isAdmin;
 
-    public UserData() {
-
-    }
 }
