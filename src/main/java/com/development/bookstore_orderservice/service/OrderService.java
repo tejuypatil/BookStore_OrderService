@@ -88,7 +88,7 @@ public class OrderService implements IOrderService {
             Order order = new Order();
 
             order.setCanceled(true);
-            HttpHeaders header = new HttpHeaders();
+            /*HttpHeaders header = new HttpHeaders();
             header.set("Authorization",token);
             HttpEntity<Void> requestEntity = new HttpEntity<>(header);
 
@@ -102,7 +102,7 @@ public class OrderService implements IOrderService {
             bookRequestDTO.setQuantity(book.getQuantity());
 
             HttpEntity<BookRequestDTO> requestDTOHttpEntity = new HttpEntity<BookRequestDTO>(bookRequestDTO,header);
-            ResponseEntity<BookResponseDTO> response= restTemplate.exchange("http://localhost:8085/bookservice/"+book.getBookId(), HttpMethod.PUT,requestDTOHttpEntity,BookResponseDTO.class);
+            ResponseEntity<BookResponseDTO> response= restTemplate.exchange("http://localhost:8085/bookservice/"+book.getBookId(), HttpMethod.PUT,requestDTOHttpEntity,BookResponseDTO.class);*/
             return orderRepository.save(order);
         }
         else
