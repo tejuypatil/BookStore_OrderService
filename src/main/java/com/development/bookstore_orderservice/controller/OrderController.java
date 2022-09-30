@@ -21,7 +21,7 @@ public class OrderController {
     }
 
     @GetMapping("/orderservice/{orderId}")
-    public ResponseEntity<OrderResponseDTO> getBookById(@PathVariable("orderId") int bookId,@RequestHeader(name = "Authorization")String token){
+    public ResponseEntity<OrderResponseDTO> getOrderById(@PathVariable("orderId") int bookId,@RequestHeader(name = "Authorization")String token){
         Order book = orderService.getOrder(bookId,token);
         return new ResponseEntity<OrderResponseDTO>(new OrderResponseDTO("Get call for Id successful",book),HttpStatus.OK);
 
